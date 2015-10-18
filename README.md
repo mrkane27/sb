@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Use `sb.htm` as a search engine in your browser, and you can type things like
+Use [`sb`](http://mrkane27.github.io/sb/sb.htm?q=list) as a search engine in your browser, and you can type things like
 `gi boat` to search for pictures of boats, `yt rickroll` to search for videos,
 etc.
 
