@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>_</title>
+<title>Smart Bookmarks</title>
 <script>
 var ALIASES_KEY = "sb_aliases";
 
@@ -236,16 +236,56 @@ function listAll() {
 }
 
 var searchQuery = splitArgs(window.location).q;
-document.title = searchQuery;
-var r = applyLoader(searchQuery);
-if (r) {
-  if (r.url) {
-    navigate(r.url);
-  } else if (r.text) {
-    document.write("<pre>" + r.text + "</pre>");
+if (searchQuery) {
+  document.title = searchQuery;
+  var r = applyLoader(searchQuery);
+  if (r) {
+    if (r.url) {
+      navigate(r.url);
+    } else if (r.text) {
+      document.write("<pre>" + r.text + "</pre>");
+    }
   }
+} else {
+  document.addEventListener("DOMContentLoaded", function(event) {
+    document.getElementById('instructions').style.display = 'block';
+  });
 }
-
 </script>
+<style type="text/css">
+  body, tt, input, pre {
+    font-family: Monaco, Menlo, monospace;
+  }
+  tt {
+    background-color: #EAEEF7;
+    padding: 2px;
+    border-radius: 2px;
+  }
+  #instructions {
+    display: none;
+  }
+  input {
+    font-size: 20pt;
+    margin-top: 20px;
+  }
+</style>
 </head>
+<body>
+  <form method="get" id="instructions">
+    <div>
+      <h1>Smart Bookmarks</h1>
+      <p>To install <strong>sb</strong>:</p>
+      <ol>
+        <li>Right click "Command" field</li>
+        <li>Choose "Add As Search Engine..."</li>
+        <li>Pick a keyword, for example <strong>sb</strong></li>
+      </ol>
+      <p>
+        Now you can access it by typing <tt>sb &lt;command [query]&gt;</tt> in
+        the URL bar. Try <tt>sb list</tt>
+      </p>
+    </div>
+    <input type="text" name="q" placeholder="Command. Try 'list'" autofocus="1">
+  </form>
+</body>
 </html>
