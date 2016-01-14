@@ -19,7 +19,13 @@ var baseCommands = {
   },
   "gi": {
     desc: "Google Image Search",
-    url: "https://www.google.com/search?q=%s&tbm=isch"
+    gen: function(q) {
+      if (q.match(/^http(s?):.*/)) {
+        return {url: ("https://www.google.co.uk/searchbyimage?image_url=" + q)};
+      } else {
+        return {url: ("https://www.google.com/search?q=" + q + "&tbm=isch")};
+      }
+    }
   },
   "pp": {
     desc: "Google Photos",
