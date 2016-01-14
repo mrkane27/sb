@@ -82,7 +82,7 @@ var coreCommands = {
   "alias": {
      desc: "Add or remove an alias",
      gen: function(q, args) {
-       if (args[0]) {
+       if (args[0] && args[0] != 'alias') {
          aliases = getAliases();
          if (!args[1]) {
            delete aliases[args[0]];
