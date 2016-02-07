@@ -101,7 +101,8 @@ var coreCommands = {
          }
          localStorage.setItem(ALIASES_KEY, JSON.stringify(aliases));
        }
-       return {text: "Usage: alias [cmd [cmd|&lt;url [url when no arguments given]&gt;]]\nAliases: " + JSON.stringify(getAliases(), null, "  ")};
+       return {text: "Usage: alias [cmd [cmd|&lt;url [url when no arguments given]&gt;]]\nAliases: " +
+         JSON.stringify(getAliases(), null, "  ")};
      }
   }
 };
