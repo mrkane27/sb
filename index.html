@@ -120,7 +120,6 @@ function CommandSetLoader(commandSet, opts) {
     gen: function(q) {
       var components = q.split(" ");
       var cmd = components[0].toLowerCase();
-      var param = q.substring(cmd.length + 1);
       var args = q.substring(components[0].length + 1);
 
       var r = commandSet[cmd];
